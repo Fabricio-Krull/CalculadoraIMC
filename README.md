@@ -32,3 +32,5 @@ https://github.com/user-attachments/assets/2d2927e1-a81e-4862-b6a3-8a7e61548f43
 
 ## Mudança dos valores exemplo
 https://github.com/user-attachments/assets/7fd20e15-6e84-4316-881a-fc71df2399e9
+
+Obs: O vídeo explicando o código é grande demais, então ele ficou na pasta "Vídeos Demonstrativos"
