@@ -22,4 +22,13 @@ exportadas para os componentes IdealWeight (peso ideal) e Classification (classi
 Outro componente, o Classification é utilizado para avaliar o nível de IMC do usuário, com base nas informações fornecidas. Nesta seção, o aplicativo verifica o valor do IMC
 com base na tabela IMC, proporcionada no arquivo PDF. Após gerar o texto de avaliação do IMC do usuário, o aplicativo também muda a cor do fundo da classificação, para passar
 uma sensação de validação.
-Por fim, o componente IdealWeight informa o usuário em qual faixa de peso ele deve estar para permanecer dentro do intervalo de IMC regular (entre 18.5 e 24.5), com base na altura inserida.
+Por fim, o component
+
+
+e IdealWeight informa o usuário em qual faixa de peso ele deve estar para permanecer dentro do intervalo de IMC regular (entre 18.5 e 24.5), com base na altura inserida.
+
+## Funcionamento geral do aplicativo
+https://github.com/user-attachments/assets/2d2927e1-a81e-4862-b6a3-8a7e61548f43
+
+## Mudança dos valores exemplo
+https://github.com/user-attachments/assets/7fd20e15-6e84-4316-881a-fc71df2399e9
