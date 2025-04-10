@@ -40,7 +40,7 @@ const styles = StyleSheet.create({ // Não vou comentar a estilização
   header: {
 
     backgroundColor: '#A5ABA0',
-    height: "15%",
+    height: "17%",
     width: "100%",
     position: 'relative',
     justifyContent: 'center',
