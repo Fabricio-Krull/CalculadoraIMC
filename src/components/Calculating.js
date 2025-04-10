@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity } from "react-native";
-import { Touchable } from "react-native";
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import Classification from './Classification';
 import IdealWeight from './IdealWeight';
+
+// Esse componente é equivalente ao componente results.
+// Nele, são calculados os valores de imc, peso, altura, e definido o gênero do usuário, que pode ser alterado
+// a qualquer momento no aplicativo, visando calcular com facilidade para cada um dos dois gêneros.
 
  // função useState usada para alterar o estado de algum valor
  // com base em um evento (nesse caso na troca do valor de um input)
@@ -10,7 +13,6 @@ const Calculating = () => {
     const [height, setHeight] = useState(0);
     const [weight, setWeight] = useState(0);
     const [imc, setIMC] = useState(null);
-    const [genderValue, setGenderValue] = useState("Homem");
     
 
     const CalcIMC = () => {
@@ -26,23 +28,26 @@ const Calculating = () => {
       };
 
 
-      const switchGender = () => {
-
-        if(genderValue == "Mulher"){
-            setGenderValue("Homem");
-        }
-        else{
-            setGenderValue("Mulher");
-        }
-    }
     
-    const styles = StyleSheet.create({
+    const styles = StyleSheet.create({ // Não vou comentar a estilização
 
         input: {
 
-            width: '80%',
+            width: '86%',
+            borderTopLeftRadius: 20,
             height: '100%',
-            backgroundColor: '#FF9436',
+            backgroundColor: '#666666',
+            color: 'white',
+            textAlign: 'center',
+            
+        },
+
+        input2: {
+
+            width: '86%',
+            borderBottomLeftRadius: 20,
+            height: '100%',
+            backgroundColor: '#666666',
             color: 'white',
             textAlign: 'center',
             
@@ -56,7 +61,7 @@ const Calculating = () => {
 
         inputs2: {
 
-            height: '50%',
+            height: '40%',
             width: '100%',
             display: 'flex',
             flexDirection: 'row',
@@ -70,15 +75,16 @@ const Calculating = () => {
             height: '200%',
             width: '100%',
             padding: '1%',
-            backgroundColor: '#F16901',
+            backgroundColor: '#DBDDD0',
             
         },
         
         buttons: {
 
             display: 'flex',
+            justifyContent: 'center',
             flexDirection: 'row',
-            height: '30%',
+            height: '45%',
 
         },
 
@@ -91,22 +97,14 @@ const Calculating = () => {
         calc: {
 
             display: 'flex',
-            backgroundColor: "red",
+            backgroundColor: "#C6C5BF",
             height: "100%",
             width: "50%",
             justifyContent: 'center',
             alignItems: 'center',
+            marginTop: '5%',
         },
 
-        gender: {
-
-            display: 'flex',
-            backgroundColor: "green",
-            height: "100%",
-            width: "50%",
-            justifyContent: 'center',
-            alignItems: 'center',
-        }
 
     });
 
@@ -114,7 +112,7 @@ const Calculating = () => {
         
         <View style={styles.main}>
             <View style={styles.inputs2}>
-                <Text>Peso: </Text>
+                <Text style={{fontSize: 17,}}>Peso: </Text>
                 <TextInput
                 style={styles.input}
                 placeholder="Peso em quilos"
@@ -127,7 +125,7 @@ const Calculating = () => {
             <View style={styles.inputs2}>
                 <Text>Altura: </Text>
                 <TextInput
-                style={styles.input}
+                style={styles.input2}
                 placeholder="Altura em centímetros"
                 keyboardType="numeric"
                 value={height}
@@ -139,21 +137,18 @@ const Calculating = () => {
                 <TouchableOpacity  style={styles.calc} onPress={ CalcIMC }>
                     <Text>Calcular o IMC</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.gender} onPress={ switchGender }>
-                    <Text>{genderValue}</Text>
-                </TouchableOpacity>
             </View>
 
             <View style={styles.result}>
             {/* Essa seção de código está de certa forma 'exportando' o valor de imc */}
                 {/* Essa linha é 50% ChatGPT*/}
                 {/* Eu precisava de uma maneira de atualizar o valor de IMC entre os arquivos */}
-                <Text style={styles.resultText}>O seu índice de massa corpórea é de {imc}</Text>
+                {imc && <Text style={styles.resultText}>O seu índice de massa corpórea é de {imc}</Text>}
 
                 {imc && <Classification imc={imc} />} 
 
                 
-                {height && genderValue && <IdealWeight height={height} genderValue={genderValue} />}
+                {height && <IdealWeight height={height} />}
                 
             </View>
                 

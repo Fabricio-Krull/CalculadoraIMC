@@ -1,58 +1,54 @@
-import { View, Text, TextInput, StyleSheet, Button } from "react-native"
-
+import { useState, useEffect } from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const Classification = ({ imc = 0 }) => {
-    
-    if (!imc) return null; // Se o imc não for válido, não exibe nada
+  const [color, setColor] = useState(""); // Estado para a cor de fundo da classificação
+  const [classificationText, setClassificationText] = useState(""); // Estado para o texto da classificação
 
+  if (!imc) return null; // Se o IMC não for válido, não exibe nada
+  
+  // Atualiza o texto da classificação e a cor com base no IMC
+  useEffect(() => { // a cor e o texto TEM QUE mudar quando o imc mudar para certos valores
     if (imc < 18.5) {
-      return (
-          <Text style={styles.text}>
-            Classificação de IMC: Baixo peso (IMC baixo ou muito baixo)
-          </Text>
-      );
+      setClassificationText("Baixo peso (IMC baixo ou muito baixo)");
+      setColor("d008");
+    } else if (imc >= 18.5 && imc <= 24.9) {
+      setClassificationText("Peso regular");
+      setColor("0f08");
+    } else if (imc <= 29.9) {
+      setClassificationText("Sobrepeso (IMC alto)");
+      setColor("8008");
+    } else if (imc <= 34.9) {
+      setClassificationText("Obesidade grau I");
+      setColor("a008");
+    } else if (imc <= 39.9) {
+      setClassificationText("Obesidade grau II");
+      setColor("c008");
+    } else if (imc >= 40) {
+      setClassificationText("Obesidade grau III");
+      setColor("f008");
     }
-  
-    else if (imc >= 18.5 && imc <= 24.9) {
-      return (
-          <Text style={styles.text}>Classificação de IMC: Peso regular</Text>
-      );
-    }
-  
-    else if (imc >= 25 && imc <= 29.9) {
-      return (
-          <Text style={styles.text}>Classificação de IMC: Sobrepeso (IMC alto)</Text>
-      );
-    }
-  
-    else if (imc >= 30 && imc <= 34.9) {
-      return (
-          <Text style={styles.text}>Classificação de IMC: Obesidade grau I</Text>
-      );
-    }
-  
-    else if (imc >= 35 && imc <= 39.9) {
-      return (
-          <Text style={styles.text}>Classificação de IMC: Obesidade grau II</Text>
-      );
-    }
-    else{
+  }, [imc]);
 
-      return (
-        <Text style={styles.text}>Classificação de IMC: Obesidade grau III</Text>
-      );
-    }
-  };
+
   
-  const styles = StyleSheet.create({
+  const styles = StyleSheet.create({ // Não vou comentar a estilização
     text: {
       width: '100%',
+      backgroundColor: `#${color}`, // Usando o valor de `color` para o fundo
       fontSize: 30,
-      marginTop: '10%',
+      borderRadius: 20,
       justifyContent: 'center',
       alignItems: 'center',
+      textAlign: 'center', // Para centralizar o texto
     },
   });
 
+  return (
+    <View style={{ marginTop: '5%', marginBottom: '5%' }}>
+      <Text style={styles.text}>Classificação de IMC: {classificationText}</Text>
+    </View>
+  );
+};
 
 export default Classification;

@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { Touchable } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 import Classification from './src/components/Classification.js';
 import Calculating from './src/components/Calculating.js';
-import IdealWeight from './src/components/IdealWeight.js';
 
 export default function App() {
-  return ( // Todos os arquivos chamandos retornam JSX, como este aqui
+  return ( // Todos os arquivos chamados retornam JSX, como este aqui
     <View style={styles.container}>
       <View style={styles.header}>
           <Text style={styles.Text}>
@@ -30,10 +28,10 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ // Não vou comentar a estilização
   container: {
     flex: 1,
-    backgroundColor: '#8AA399',
+    backgroundColor: '#A5ABA0',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
@@ -41,8 +39,8 @@ const styles = StyleSheet.create({
 
   header: {
 
-    backgroundColor: '#FF9A33',
-    height: "20%",
+    backgroundColor: '#A5ABA0',
+    height: "15%",
     width: "100%",
     position: 'relative',
     justifyContent: 'center',
@@ -54,7 +52,7 @@ const styles = StyleSheet.create({
 
   bottomDiv: {
 
-    backgroundColor: '#FBB03B',
+    backgroundColor: '#DBDDD0',
     alignItems: 'center',
     height: "80%",
     width: "100vw",
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
   Text: {
 
     color: "#03002E",
-    fontSize: 30,
+    fontSize: 25,
   },
 
   weight: {
