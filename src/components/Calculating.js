@@ -100,6 +100,7 @@ const Calculating = () => {
             backgroundColor: "#C6C5BF",
             height: "100%",
             width: "50%",
+            borderRadius: 15,
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: '5%',
