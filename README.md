@@ -13,3 +13,11 @@ ou o yarn, respectivamente.
 3 - Utilizando o Expo: Para esse passo, caso esteja utilizando a interface Expo, seria necessário instalar o aplicativo 'Expo Go' no seu celular, para conseguir realizar a leitura
 de um QR Code no terminal de comando. Para gerar tal QR Code, é necessário iniciar um projeto em uma pasta, e digitar a linha "npx expo start --tunnel". Após ler o QR Code, o aplicativo
 realiza um bundle (junção) do celular e do código-fonte a ser utilizado para construir o aplicativo. Através disso conseguimos ver as mudanças em tempo real.
+
+## Explicando a construção do app
+O componente Calculating.js calcula e exibe os resultados do cálculo do IMC. Neste componente, as variáveis de peso, altura e IMC são criadas, e as variáveis de altura e IMC são 
+exportadas para os componentes IdealWeight (peso ideal) e Classification (classificação conforme a tabela IMC) respectivamente.
+Outro componente, o Classification é utilizado para avaliar o nível de IMC do usuário, com base nas informações fornecidas. Nesta seção, o aplicativo verifica o valor do IMC
+com base na tabela IMC, proporcionada no arquivo PDF. Após gerar o texto de avaliação do IMC do usuário, o aplicativo também muda a cor do fundo da classificação, para passar
+uma sensação de validação.
+Por fim, o componente IdealWeight informa o usuário em qual faixa de peso ele deve estar para permanecer dentro do intervalo de IMC regular (entre 18.5 e 24.5), com base na altura inserida.
