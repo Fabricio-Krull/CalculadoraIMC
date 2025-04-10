@@ -15,10 +15,7 @@ const IdealWeight = ( { height } ) => {
         setCalculatedMinIdealWeight((18.5 * ((height/100)*(height/100))).toFixed(2));
     }
 
-        
-        
-    
-     
+   
         return(
             <View style={styles.view}>
                 <TouchableOpacity onPress={calculateIdealWeight} style={styles.calc}>
